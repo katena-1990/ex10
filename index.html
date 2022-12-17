@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content"></div>
+
+    <script src="data.js"></script>
+    <script>
+        const dataElement = JSON.parse(dataJson);
+
+        const contentElement = document.querySelector('.content');
+
+        dataElement.forEach(dataEl => {
+            const divEl = document.createElement('div');
+            divEl.classList.add('top__content');
+
+            const titleEl = document.createElement('h1');
+            titleEl.classList.add('title');
+            titleEl.textContent = dataEl.title;
+            titleEl.style.color = 'red';
+
+            const textEl = document.createElement('p');
+            textEl.classList.add('text');
+            textEl.textContent = dataEl.body;
+
+            const createEl = document.createElement('p');
+            createEl.classList.add('create');
+            createEl.textContent = dataEl.created;
+
+            const updateEl = document.createElement('p');
+            updateEl.classList.add('update');
+            updateEl.textContent = dataEl.updated;
+
+            const imgEl = document.createElement('img');
+            imgEl.classList.add('update');
+            imgEl.src = dataEl.img_src;
+            imgEl.style.width = '300px';
+
+            const earthEl = document.createElement('p');
+            earthEl.classList.add('earth');
+            earthEl.textContent = dataEl.earth_date;
+
+            contentElement.appendChild(divEl);
+            divEl.appendChild(titleEl);
+            divEl.appendChild(textEl);
+            divEl.appendChild(createEl);
+            divEl.appendChild(updateEl);
+            divEl.appendChild(imgEl);
+            divEl.appendChild(earthEl);
+        });
+    </script>
+</body>
+
+</html>
